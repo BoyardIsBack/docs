@@ -68,7 +68,8 @@
         this.email = ''
         this.select = null
         this.checkbox = null
-        this.$validator.reset()
+        // Little hack with nextTick to avoid error being proc while reset. Probably due to timing.
+        this.$nextTick(() => this.$validator.reset())
       }
     }
 
